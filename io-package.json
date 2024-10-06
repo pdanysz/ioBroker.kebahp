@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "kebahp",
-    "version": "0.1.1",
+    "version": "0.1.3",
     "news": {
+      "0.1.3": {
+        "pl": "dodano obsługę wysyłki danych do KeBaHeatPump",
+        "en": "added sending data to KeBaHeatPump",
+        "de": "Daten werden gesendet",
+        "ru": "данные отправляются",
+        "pt": "dados enviados",
+        "nl": "gegevens worden verzonden",
+        "fr": "données envoyées",
+        "it": "dati inviati",
+        "es": "datos enviados",
+        "uk": "дані відправляються",
+        "zh-cn": "数据发送"
+      },
       "0.1.1": {
         "en": "fix version error",
         "de": "fehler bei der ausführung",

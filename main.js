@@ -28,6 +28,7 @@ class Kebahp extends utils.Adapter {
 
 		this.on("ready", this.onReady.bind(this));
 		this.on("unload", this.onUnload.bind(this));
+		this.on("stateChange", this.onStateChange.bind(this));
 	}
 
 	/**
@@ -190,12 +191,21 @@ class Kebahp extends utils.Adapter {
 	 * @param {ioBroker.State | null | undefined} state
 	 */
 	onStateChange(id, state) {
+		this.log.debug(`state ${id} changed: ${state?.val} (ack = ${state?.ack})`);
+
+		if (!this.apiClient) {
+			this.log.error("Apiclient not instanced.");
+			return;
+		}
+
 		if (state) {
 			// The state was changed
 			this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+			this.setState(id, state.val);
 		} else {
 			// The state was deleted
 			this.log.info(`state ${id} deleted`);
+			this.setState(id, null);
 		}
 	}
 
